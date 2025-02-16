@@ -67,14 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await getResponseData(query);
       console.log('API response data:', data);
 
-      if (!data || !data.hits || data.hits.length === 0) {
+      if (!data || data.length === 0) {
         iziToast.show(errFindImagesMessage);
         return;
       }
 
       addGalleryElements(galleryList, data);
       gallery.refresh();
-      toggleLoadMoreButton(data.hits.length >= 15);
+      toggleLoadMoreButton(data.length >= 15);
     } catch (error) {
       console.error('Error fetching images:', error);
       iziToast.show(errFindImagesMessage);
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await getResponseData(query, { page: currentPage + 1 });
       console.log('API response data:', data);
 
-      if (!data || !data.hits || data.hits.length === 0) {
+      if (!data || data.length === 0) {
         iziToast.show(errFindImagesMessage);
         return;
       }
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
       addGalleryElements(galleryList, data);
       gallery.refresh();
       loadMoreButton.dataset.page = currentPage + 1;
-      toggleLoadMoreButton(data.hits.length >= 15);
+      toggleLoadMoreButton(data.length >= 15);
     } catch (error) {
       console.error('Error fetching images:', error);
       iziToast.show(errFindImagesMessage);
