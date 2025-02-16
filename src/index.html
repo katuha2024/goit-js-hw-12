@@ -2,22 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./img/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>goit-js-hw-12</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
-
     <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
+      <div class="container">
+        <button type="button" class="go-btn-top visually-hidden" aria-label="go to top">
+          <img src="./img/up.svg" alt="go to top" width="24" height="24">
+        </button>
+        <form class="search-form">
+            <input
+              name="requestField"
+              type="text"
+              placeholder="Search images..."
+              class="search-images"
+              autofocus
+            />
+          <button type="submit" class="search-btn">Search</button>
+        </form>
+        <div class="loader visually-hidden"></div>
+        <ul class="gallery"></ul>
+        <button id="loadMoreButton" type="button" class="load-btn visually-hidden">Load more</button>
+        <div class="loader-visually-hidden"></div>
+      </div>
     </main>
-
-    <load src="./partials/footer.html" />
-
     <script type="module" src="./main.js"></script>
   </body>
 </html>
