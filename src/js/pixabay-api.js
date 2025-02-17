@@ -15,18 +15,8 @@ export default async function getResponseData(
     ...additionalParams,
   };
 
-  try {
-    const { data } = await axios.get('https://pixabay.com/api/', { params: requestParams });
-
-    console.log('API Response:', data); // Додаємо логування
-
-    if (!data.hits) {
-      throw new Error('Неправильний формат відповіді API');
-    }
-
-    return data.hits; // Повертаємо тільки масив зображень
-  } catch (error) {
-    console.error('Помилка отримання даних:', error);
-    return []; // Повертаємо порожній масив у разі помилки
-  }
+  const { data } = await axios.get('', {
+    params: requestParams,
+  });
+  return data;
 }
